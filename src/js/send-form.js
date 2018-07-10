@@ -4,7 +4,6 @@ function sendForm() {
     $(window).scroll(function () {
         if ($(window).scrollTop() + $(window).height() >= $(document).height() - 400) {
             $('.form').addClass('active');
-            console.log('ass');
         }
     });
 
