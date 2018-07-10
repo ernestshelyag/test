@@ -1,0 +1,94 @@
+=r-pad($p-top, $p-bot:$p-top)
+  padding: $p-top+px 0 $p-bot+px
+  +rn
+    padding: ($p-top/2)+px 0 ($p-bot/2)+px
+  +rm
+    padding: ($p-top/4)+px 0 ($p-bot/4)+px
+
+=r-mar($m-top, $m-bot:$m-top)
+  margin: $m-top+px 0 $m-bot+px
+  +rn
+    margin: ($m-top/2)+px 0 ($m-bot/2)+px
+  +rm
+    margin: ($m-top/4)+px 0 ($m-bot/4)+px
+
+=b
+  border: solid 1px red
+=bb
+  border: solid 1px blue
+=bbb
+  border: solid 1px green
+
+=zero
+  top: 0
+  bottom: 0
+  right: 0
+  left: 0
+  margin: auto
+
+=psevdo
+  position: relative
+  &:before,&:after
+    content: ''
+    position: absolute
+
+=vcenter
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%,-50%)
+
+=tr
+  transition: all .3s ease
+
+=flex
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+=flex-center
+  display: flex
+  justify-content: center
+  align-items: center
+
+=bg-center
+  background-position: center center
+  background-size: cover
+
+=absolute-cover
+  position: absolute
+  width: 100%
+  height: 100%
+  top: 0
+  left: 0
+
+=arr($width, $height, $bg, $direction)
+  width: 0px
+  height: 0px
+  border-style: solid
+  @if $direction == t
+    border-width: 0 $width / 2 + px $height + px $width / 2 + px
+    border-color: transparent transparent $bg transparent
+  @if $direction == r
+    border-width: $height / 2 + px 0 $height / 2 + px $width + px
+    border-color: transparent transparent transparent $bg
+  @if $direction == b
+    border-width: $height + px $width / 2 + px 0 $width / 2 + px
+    border-color: $bg transparent transparent transparent
+  @if $direction == l
+    border-width: $height / 2 + px $width + px $height / 2 + px 0
+    border-color: transparent $bg transparent transparent
+  @if $direction == tl
+    border-width: $height + px $width + px 0 0
+    border-color: $bg transparent transparent transparent
+  @if $direction == tr
+    border-width: 0 $width + px $height + px 0
+    border-color: transparent $bg transparent transparent
+  @if $direction == br
+    border-width: 0 0 $height + px $width + px
+    border-color: transparent transparent $bg transparent
+  @if $direction == bl
+    border-width: $width + px 0 0 $height + px
+    border-color: transparent transparent transparent $bg
+
+// example +arr(500,50, #000, l)

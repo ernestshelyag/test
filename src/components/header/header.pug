@@ -1,0 +1,51 @@
+-
+    var headerMenu = [ "menu", "menu", "menu", "menu" ]
+    var headerMenuItem = [ "Menu1", "Menu2", "Menu3", "Menu", "Menu", "Menu", "Menu" ]
+
++b.HEADER.header
+    +b.decor_bottom
+        +e.cont_bottom
+            +e.bot-left
+            +e.bot-right
+    +e.main
+        +e.cont
+            +e.block_l
+                +e.UL.list_l
+                    each item in headerMenu
+                        +e.LI.item_l=item
+                            +e.UL.inner-list_l
+                                each item in headerMenuItem
+                                    +e.LI.inner-item
+                                        +e.A.link_l(href="#")= item
+                +e.text-block_l
+                    +e.box_l
+                        span hello
+                        p this is
+            +e.block_r
+                +e.left-block
+                    +e.UL.list_r
+                        each item in headerMenu
+                            +e.LI.item_r=item
+                                +e.UL.inner-list_r
+                                    each item in headerMenuItem
+                                        +e.LI.inner-item
+                                            +e.A.link_r(href="#")= item
+                +e.text-block_r
+                    +e.box_r
+                        p test
+
+    +e.wrp.wrp
+        +e.logo-block
+            +e.A.logo-link(href="/")
+                +e.SPAN.logo-text
+                    | Test
+            +b.DIV.burger
+                +e.A.btn#burger-btn
+                    +e.DIV.lines-block
+                        +e.SPAN.mid-line
+            +b.DIV.sidebar
+                +e.DIV.cont
+                    +e.UL.list
+                        each item in headerMenu
+                            +e.LI.item
+                                +e.A.link(href="#")= item

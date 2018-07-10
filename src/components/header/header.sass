@@ -1,0 +1,261 @@
+.header
+  background-image: url("../img/1.jpg")
+  background-position: center center
+  background-size: cover
+  height: 90vh
+  position: relative
+  border-top: solid .1px transparent
+  &__logo-block
+    margin-top: 20px
+  &__logo-text
+    font-size: 30px
+    font-weight: bold
+    text-transform: uppercase
+    +psevdo
+    color: $main-col
+    letter-spacing: 1px
+    &:before
+      bottom: -10px
+      left: 0
+      width: 50%
+      background: $main-col
+      height: 5px
+
+  &__main
+    +absolute-cover
+  &__cont
+    height: 100%
+    display: flex
+  &__block
+    height: 100%
+    position: relative
+    &_l
+      background: rgba($main-col-dark, .7)
+      width: 60%
+    &_r
+      background: rgba($main-col, .7)
+      width: 40%
+
+  &__list
+    +tr
+    display: flex
+    position: absolute
+    top: 20px
+    align-items: center
+    height: 30px
+    +rt
+      display: none
+    &_l
+      background: $main-col
+      animation: forwards 1s right
+    &_r
+      left: 0
+      background: $main-col-dark
+      animation: forwards 1s left
+
+  &__item
+    cursor: pointer
+    padding: 0 30px 0 10px
+    text-transform: uppercase
+    font-size: 12px
+    font-weight: 600
+    height: 100%
+    display: flex
+    align-items: center
+    +psevdo
+    &:before
+      width: 7px
+      height: 7px
+      right: 10px
+      top: 7px
+      transform: rotate(45deg)
+
+    &:hover
+      & > ul
+        top: 30px
+        opacity: 1
+        visibility: visible
+
+    &_l
+      color: $main-col-dark
+      &:before
+        border-right: solid 2px $main-col-dark
+        border-bottom: solid 2px $main-col-dark
+
+    &_r
+      color: $main-col
+      &:before
+        border-right: solid 2px $main-col
+        border-bottom: solid 2px $main-col
+
+  &__inner-list
+    +tr
+    position: absolute
+    top: -20px
+    width: 90px
+    opacity: 0
+    visibility: hidden
+
+    &_l
+      left: 0
+    &_r
+      right: 0
+  &__link
+    width: 100%
+    font-size: 12px
+    padding: 10px
+    z-index: 10
+    &:hover
+      text-decoration: underline
+
+    &_l
+      background: $main-col-dark
+      color: $main-col
+    &_r
+      background: $main-col
+      color: $main-col-dark
+
+  &__text-block
+    position: absolute
+    top: 50vh
+    height: 80px
+    text-transform: uppercase
+    padding: 0 5px
+    span
+      font-size: 30px
+    p
+      font-size: 60px
+      font-weight: bold
+      line-height: 40px
+      +rt
+        font-size: 40px
+
+    &_l
+      color: $main-col
+      animation: forwards 1s right
+
+    &_r
+      color: $main-col-dark
+      animation: forwards 1s left
+
+  &__box
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    width: 100%
+    height: 100%
+    &_l
+      +psevdo
+      &:before
+        height: 100%
+        width: 5px
+        top: 0
+        left: -10px
+        background: $main-col
+    &_r
+      justify-content: flex-end
+
+@keyframes right
+  from
+    right: -300px
+  to
+    right: 0
+
+@keyframes left
+  from
+    left: -300px
+  to
+    left: 0
+
+
+// burger menu
+
+.burger
+  display: none
+  z-index: 100
+  position: absolute
+  top: 20px
+  right: 20px
+  width: 30px
+  height: 30px
+  +rt
+    display: block
+  &__btn
+    width: 100%
+    height: 100%
+    cursor: pointer
+  &__lines-block
+    +psevdo
+    top: 7px
+    left: 13px
+    width: 16px
+    height: 14px
+    &:before,&:after
+      width: 100%
+      height: 2px
+      left: 0
+      background: $font-col
+      +tr
+    &:before
+      top: 0
+    &:after
+      bottom: 0
+    &.active
+      &:before
+        top: 6px
+        transform: rotate(45deg)
+        background: $main-col
+      &:after
+        bottom: 6px
+        transform: rotate(-45deg)
+        background: $main-col
+  &__mid-line
+    position: absolute
+    +zero
+    width: 100%
+    height: 2px
+    background: $font-col
+    +tr
+    &.active
+      opacity: 0
+
+// - - - - -
+
+.sidebar
+  z-index: 20
+  position: fixed
+  top: 0
+  right: 0
+  height: 100vh
+  width: 0
+  background: $bg-filter
+  overflow: hidden
+  +tr
+  &.active
+    width: 100%
+  &__cont
+    background: #fff
+    height: 100%
+    width: 414px
+    position: relative
+    float: right
+    +rms
+      width: 100%
+  &__list
+    width: 100%
+    +vcenter
+    text-align: center
+  &__link
+    font-weight: bold
+    font-size: 14px
+    text-transform: uppercase
+    padding: 10px
+    color: #fff
+    opacity: 0
+    text-decoration: none
+    +tr
+    &.active
+      opacity: 1
+      color: $font-col
+    +rms
+      font-size: 10px

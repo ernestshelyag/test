@@ -1,0 +1,36 @@
+extends ../template
+
+block variables
+    - var title = 'Home page'
+
+block content
+
+    include ../../components/header/header
+
+    +b.MAIN.main
+        +b.SECTION.demo.wrp
+            +e.H1.title.title demo title
+            +e.P.text Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad alias, delectus magni nesciunt nulla perferendis provident rerum saepe. Aliquam, optio.
+        +b.SECTION.connect
+            +e.SPAN.mask
+            +b.decor_top
+                +e.cont_top
+                    +e.top-left
+                    +e.top-right
+            +e.cont.wrp
+                +e.H1.title.title connect with us
+                +e.P.text Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad alias, delectus magni nesciunt nulla perferendis provident rerum saepe. Aliquam, optio.
+                +e.form-block
+                    +b.FORM.form
+                        +e.lev
+                            +e.INPUT.inp.inp(type="text" placeholder="Name")
+                        +e.lev
+                            +e.INPUT.inp(type="email" placeholder="Email")
+                        +e.lev
+                            +e.INPUT.inp.number-only.inp(type="text" placeholder="Phone")
+                        +e.lev
+                            +e.TEXTAREA.inp_ta.inp(type="text" placeholder="Message")
+                        +e.lev
+                            +e.BUTTON.btn(type="submit") Send message
+
+

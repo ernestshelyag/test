@@ -1,0 +1,66 @@
+// responsive
+
+$wide: 1366
+$note: 1024
+$tablet: 768
+$mobile: 568
+$mobile-s: 413
+
+=r($width)
+  @media only screen and (max-width: $width+ "px")
+    @content
+=rmin($width)
+  @media only screen and (min-width: $width+ "px")
+    @content
+=rw
+  @media only screen and (max-width: $wide+ "px")
+    @content
+=rn
+  @media only screen and (max-width: $note+ "px")
+    @content
+=rt
+  @media only screen and (max-width: $tablet+ "px")
+    @content
+=rm
+  @media only screen and (max-width: $mobile+ "px")
+    @content
+=rms
+  @media only screen and (max-width: $mobile-s+ "px")
+    @content
+
+// colors
+
+$font-col: #333
+
+$main-col: #FFC600
+$main-col-dark: #202122
+
+$bg-filter: rgba($main-col, .3)
+
+// fonts
+
+=main-font
+  font-family: 'proximanova', Helvetica, sans-serif
+
+=font-face($font-family, $file-path, $weight: normal, $style: normal)
+  @font-face
+    font-family: $font-family
+    src: url('#{$file-path}.woff2') format('woff2'), url('#{$file-path}.woff') format('woff')
+    font-weight: $weight
+    font-style: $style
+
++font-face('proximanova', '../fonts/proximanova-regular-webfont', 400)
++font-face('proximanova', '../fonts/proximanova-regularit-webfont', 400, italic)
++font-face('proximanova', '../fonts/proximanova-semibold-webfont', 600)
++font-face('proximanova', '../fonts/proximanova-bold-webfont', 700)
+
+// wrapper
+
+.wrp
+  max-width: 1360px
+  margin: 0 auto
+  padding: 0 30px
+  +rt
+    max-width: 740px
+    padding: 0 15px
+
